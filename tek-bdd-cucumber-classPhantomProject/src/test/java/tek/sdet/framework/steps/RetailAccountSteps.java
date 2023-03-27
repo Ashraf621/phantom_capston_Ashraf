@@ -19,6 +19,7 @@ public class RetailAccountSteps extends CommonUtility {
 //	  click(factory.homePage().accountOption);
 //	  logger.info("User click on Account option");
 //	  Thread.sleep(5000);
+	//another comment
 	
 	@And("User update Name {string} and Phone {string}")
 	public void userUpdateNameAndPhone(String name, String phoneNumber) {

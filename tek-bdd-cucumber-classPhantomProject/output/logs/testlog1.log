@@ -2561,3 +2561,10 @@
 2023-03-27 13:38:31,020 [main] INFO logger_File - user is logged in into Account
 2023-03-27 13:38:31,150 [main] INFO logger_File - User click on Orders section
 2023-03-27 13:38:31,226 [main] INFO logger_File - User click on first order in list
+2023-03-27 14:44:43,335 [main] INFO logger_File - User is on retail website
+2023-03-27 14:44:43,526 [main] INFO logger_File - user clicked on Sign in Option
+2023-03-27 14:44:43,880 [main] INFO logger_File - user entered email and password
+2023-03-27 14:44:44,009 [main] INFO logger_File - user clicked on login button
+2023-03-27 14:44:44,417 [main] INFO logger_File - user is logged in into Account
+2023-03-27 14:44:44,567 [main] INFO logger_File - User click on Orders section
+2023-03-27 14:44:44,670 [main] INFO logger_File - User click on first order in list
