@@ -3,12 +3,12 @@ Feature: Retail Home Page
   Background: 
     Given User is on retail website
     When User click on Sign in option
-    And User enter email 'phan1.caphg3@tekschool.us' and password 'Tek@123444'
+    And User enter email 'phan1.caphg3@tekschool.us' and password 'Tek@12345678'
     And User click on login button
     Then User should be logged in into Account
    
 
-  @retailHomePage
+  @retailHomePage @Regration
   Scenario Outline: Verify department sidebar options
     When User click on All section
     And User on <department>
@@ -24,7 +24,7 @@ Feature: Retail Home Page
       | 'Automotive'  | Automative Parts & Accessories | MotorCycle & Powersports |
 
   
-  @addItemtocart
+  @addItemtocart  @Regration
   Scenario: Verify User can add an item to cart
         And User change the category to 'Smart Home'
         And User search for an item 'kasa outdoor smart plug'
@@ -34,7 +34,7 @@ Feature: Retail Home Page
         And User click add to Cart button 
         Then the cart icon quantity should change to '2'
 
-        @UserPlaceOrder
+        @UserPlaceOrder  @Regration
         Scenario: Verify User can place an order without Shipping address and payment Method on file
         And User click on Cart option 
         And User click on Proceed to Checkout button
@@ -46,13 +46,13 @@ Feature: Retail Home Page
         And User click add a Cridet or Debit Card button for payement method
         And User fill below card information 
         | cardNumber       | nameOnCard | expirationMonth | expirationYear | securityCode |
-        | 6011621222712371 | Ali     |              11 |           2029 |          334 |
+        | 6011621442452371 | Ali     |              11 |           2029 |          334 |
         And User click on Add card button 
         And User click on Place Your Order
-        Then a message should be display 'Order Placed, Thanks'
+        Then a message Will be display 'Order Placed, Thanks'
 
 
-        @FinelTest
+        @FinelTest  @Regration
         Scenario: Verify User can place an order with Shipping address and payment Method on file
         And User change the category to 'Electronics'
         And User search for an item 'Apex Legends'
@@ -64,4 +64,4 @@ Feature: Retail Home Page
         And User click on Cart option 
         And User click on Proceed to Checkout button
         And User click on Place Your Order
-        Then a message should be display 'Order Placed, Thanks'
+        Then a message Will be display 'Order Placed, Thanks'

@@ -96,7 +96,7 @@ public class HomeSteps extends CommonUtility {
 	   logger.info("user selected for qty");
 	 }
 	 @And("User click add to Cart button")
-	 public void user_click_add_to_cart_button1() {
+	 public void UserClickAddToCartButton1() {
 	   click(factory.homePage().addToCart);
 	   logger.info("user clicked on add to card button");
 	 }
@@ -146,7 +146,7 @@ public class HomeSteps extends CommonUtility {
 	 @And("User click on Add card button")
 	 public void userClickOnAddCardBtn() throws InterruptedException {
 	   click(factory.homePage().addCardBtnPay);
-	   waitTillPresence(factory.accountPage().PaymentMethodAddedSuccessfully);
+	   waitTillPresence(factory.accountPage().PaymentAddedSuccessfully);
 	   logger.info("User Clicked on cardButton");
 	   Thread.sleep(3000);
 	 }
@@ -156,8 +156,8 @@ public class HomeSteps extends CommonUtility {
 	   logger.info("User Clicked on place order Btn");
 	   Thread.sleep(2000);
 	 }
-	 @Then("a message should be display 'Order Placed, Thanks'")
-	 public void amessageshouldbedisplayOrderPlaced() {
+	 @Then("a message Will be display {string}")
+	 public void amessageshouldbedisplayOrderPlaced(String String) {
 	   waitTillPresence(factory.homePage().orderPlacedThanks);
 	   Assert.assertTrue(isElementDisplayed(factory.homePage().orderPlacedThanks));
 	   logger.info("Order placed,thanks");

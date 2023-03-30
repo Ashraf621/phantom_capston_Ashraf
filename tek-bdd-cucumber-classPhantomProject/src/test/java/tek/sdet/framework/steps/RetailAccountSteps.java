@@ -65,7 +65,7 @@ public class RetailAccountSteps extends CommonUtility {
 	  click(factory.accountPage().changePassButton);
 	  logger.info("User click on Change Password button");
 	}
-	@Then("a message should be displayed 'Password Updated Successfully'")
+	@Then("a message Will be displayed 'Password Updated Successfully'")
 	public void PasswordUpdatedSuccessfully() {
 	    waitTillPresence(factory.accountPage().PassUpdatedSuccessfully);
 	    Assert.assertTrue(isElementDisplayed(factory.accountPage().PassUpdatedSuccessfully));
@@ -76,15 +76,16 @@ public class RetailAccountSteps extends CommonUtility {
 // bellow is the methods for Add payment Scenario===============================================================================
 
     @And("User click on Add a payment method link")
-    public void UserClickOnAddAPaymentMethodLink()  {
+    public void UserClickOnAddAPaymentMethodLink() throws InterruptedException  {
     	click(factory.accountPage().AddPaymentLink);
     	logger.info("User click on Add a payment method link");
+    	Thread.sleep(3000);
     	
     }
     	
     	
     	@And("User fill Debit or credit card information")
-    	public void UserFillDebitOrCreditCardInformation(DataTable dataTable) {
+    	public void UserFillDebitOrCreditCardInformation(DataTable dataTable) throws InterruptedException {
     		List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
     		sendText(factory.accountPage().CardNumInput, data.get(0).get("cardNumber"));
     		sendText(factory.accountPage().NameOnCard, data.get(0).get("nameOnCard"));
@@ -92,21 +93,25 @@ public class RetailAccountSteps extends CommonUtility {
     		sendText(factory.accountPage().ExpYearInput, data.get(0).get("expirationYear"));
     		sendText(factory.accountPage().SecurityCodeInput, data.get(0).get("securityCode"));
     		logger.info("User fill Debit or credit card information");
+    		Thread.sleep(3000);
     	}
     		
     	@And("User click on Add your card button")
-    	public void UserClickOnAddYourCardButton() {
+    	public void UserClickOnAddYourCardButton() throws InterruptedException {
     		click(factory.accountPage().AddCardBtn);
     		logger.info("User click on Add your card button");
+    		
+    		Thread.sleep(3000);
     		
     		
     	}
     		
-    		@Then("a message should be displayed 'Payment Method added successfully'")
-    		public void PaymentMethodAddedSuccessfully() {
-    			 waitTillPresence(factory.accountPage().PaymentMethodAddedSuccessfully);
-    			    Assert.assertTrue(isElementDisplayed(factory.accountPage().PaymentMethodAddedSuccessfully));
-    			    logger.info("a message should be displayed 'Payment Method added successfully'");
+    		@Then("a message should be displayed {string}")
+    		public void PaymentMethodAddedSuccessfully(String String) {
+    			 waitTillPresence(factory.accountPage().PaymentAddedSuccessfully);
+    			    Assert.assertTrue(isElementDisplayed(factory.accountPage().PaymentAddedSuccessfully));
+    			    logger.info("Payment Method added successfully");
+    			    
     		}
 //    	@And("User click on remove option of card section")
 //    	public void UserClickOnRemoveOptionOfCardSection() {
@@ -143,8 +148,8 @@ public class RetailAccountSteps extends CommonUtility {
     	    		logger.info("User click Add Your Address button");
     	    	}
     	    	
-    	    	@Then("a message should be displayed 'Address Added Successfully'")
-    	    	public void AddressAddedSuccessfully() {
+    	    	@Then("a message will is be displayed {string}")
+    	    	public void AddressAddedSuccessfully1(String String) {
        			 waitTillPresence(factory.accountPage().addressAddedSuccessfully);
        			    Assert.assertTrue(isElementDisplayed(factory.accountPage().addressAddedSuccessfully));
        			    logger.info("a message should be displayed 'Address Added Successfully'");
@@ -178,8 +183,8 @@ public class RetailAccountSteps extends CommonUtility {
     	    	  logger.info("the user clicked in update card button");
     	    
     	    	}
-    	    	@Then("a message should be displayed ‘Payment Method updated Successfully’")
-    	    	public void paymentMehtodUpdatedSuccessfully() {
+    	    	@Then("a message will be displayed {string}")
+    	    	public void paymentMehtodUpdatedSuccessfully(String String) {
     	    	  waitTillPresence(factory.accountPage().paymentMethodUpdated);
     	    	  Assert.assertTrue(isElementDisplayed(factory.accountPage().paymentMethodUpdated));
     	    	  logger.info("Payment Method updated Successfully");
@@ -232,13 +237,14 @@ public class RetailAccountSteps extends CommonUtility {
     	    		 click(factory.accountPage().UpdateAddButton);
     	    		 logger.info("User click update Your Address button");
     	    		
-    	    	 }
-    	    	 @Then ("a message should be displayed {string}")
-    	    	 public void aMessageShouldBeDisplayed(String string) {
+   	    	 }
+    	    	 @Then ("a message will should be displayed {string}")
+    	    	 public void AddressAddedSuccessfully(String string) {
     	    		 waitTillPresence(factory.accountPage().AddressUpdatedSuccessfully);
     	    		 Assert.assertTrue(isElementDisplayed(factory.accountPage().AddressUpdatedSuccessfully));
     	    		 logger.info("Address Updated Successfully");
     	    	 }
+    	    	 
     	    	 // Verify User can remove Address from Account=============================================================
     	    	 
     	    	 @And ("User click on remove option of Address section")

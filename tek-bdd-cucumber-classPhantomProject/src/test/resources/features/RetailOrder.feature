@@ -3,20 +3,20 @@ Feature: Retail order Page
   Background: 
     Given User is on retail website
     When User click on Sign in option
-    And User enter email 'phan1.caphg3@tekschool.us' and password 'Tek@123444'
+    And User enter email 'phan1.caphg3@tekschool.us' and password 'Tek@12345678'
     And User click on login button
     And User should be logged in into Account
 
-  @CancelOrder
+  @CancelOrder @Regration
   Scenario: Verify User can cancel the order
     And User click on Orders section
     And User click on first order in list
     And User click on Cancel The Order button
-    And User select the cancelation Reason ‘Bought wrong item’
+    And User select the cancelation Reason 'Bought wrong item'
     And User click on Cancel Order button
-    Then a cancelation message should be displayed ‘Your Order Has Been Cancelled’
+    Then a cancelation message should be displayed 'Your Order Has Been Cancelled'
 
-  @ReturnOrder
+  @ReturnOrder @Regration
   Scenario: Verify User can Return the order
     And User click on Orders section
     And User click on first order in list
@@ -24,9 +24,9 @@ Feature: Retail order Page
     And User select the Return Reason 'Item damaged'
     And User select the drop off service 'FedEx'
     And User click on Return Order button
-    Then a cancelation message should be displayed 'Return was successful'
+    Then a cancelation message shouldd be displayed 'Return was successful'
 
-  @ReviweOrder
+  @ReviweOrder @Regration
   Scenario: Verify User can write a review on order placed
     And User click on Orders section
     And User click on first order in list

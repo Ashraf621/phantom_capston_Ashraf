@@ -31,8 +31,8 @@ public class RetailOrderSteps extends CommonUtility{
 		click(factory.orderPage().cancelOrder);
 		logger.info("User click on Cancel The Order button");
 	}
-	@And("User select the cancelation Reason ‘Bought wrong item’")
-	public void userSelectTheCancelationReasonBoughtWrongItem() {
+	@And("User select the cancelation Reason {string}")
+	public void userSelectTheCancelationReasonBoughtWrongItem(String String) {
 		 click(factory.orderPage().CancelReason);
 		  Select selectBox = new Select((WebElement) factory.orderPage().CancelReason);
 		  selectBox.selectByVisibleText("Bought wrong item");
@@ -43,8 +43,8 @@ public class RetailOrderSteps extends CommonUtility{
 	   click(factory.orderPage().canelOrderBtn);
 	   logger.info("User click on Cancel Order button");
 	}
-	@Then("a cancelation message should be displayed ‘Your Order Has Been Cancelled’")
-	public void aCancelationMessageShouldBeDisplayedYourOrderHasBeenCancelled() {
+	@Then("a cancelation message should be displayed {string}")
+	public void aCancelationMessageShouldBeDisplayedYourOrderHasBeenCancelled(String String) {
 		 waitTillPresence(factory.orderPage().YourOrderHasBeenCancelled);
 		  Assert.assertTrue(isElementDisplayed(factory.orderPage().YourOrderHasBeenCancelled));
 		  logger.info("order cancelled");
@@ -59,8 +59,8 @@ public class RetailOrderSteps extends CommonUtility{
 		logger.info("User click on Return Items button");
 	    
 	}
-	@And ("User select the Return Reason 'Item damaged'")
-	public void userSelectTheReturnReasonItemDamaged()  {
+	@And ("User select the Return Reason {string}")
+	public void userSelectTheReturnReasonItemDamaged(String String)  {
 		click(factory.orderPage().returnReasonInput);
 		Select selectBox = new Select((WebElement)factory.orderPage().returnReasonInput);
 		selectBox.selectByVisibleText("Item damaged");
@@ -68,8 +68,8 @@ public class RetailOrderSteps extends CommonUtility{
 		
 	   
 	}
-	 @And ("User select the drop off service 'FedEx'")
-	public void userSelectTheDropOffServiceFedEx()  {
+	 @And ("User select the drop off service {string}")
+	public void userSelectTheDropOffServiceFedEx(String String)  {
 		click(factory.orderPage().dropOffInput);
 		Select selectBox = new Select((WebElement)factory.orderPage().dropOffInput);
 		selectBox.selectByVisibleText("FedEx");
@@ -84,11 +84,11 @@ public class RetailOrderSteps extends CommonUtility{
 		
 	    
 	}
-	@Then("a cancelation message should be displayed 'Return was successful'")
-	public void aCancelationMessageShouldBeDisplayedReturnWasSuccessful() throws InterruptedException {
-		waitTillPresence(factory.orderPage().cancelationMessageShouldBeDisplayed);
-		Assert.assertTrue(isElementDisplayed(factory.orderPage().cancelationMessageShouldBeDisplayed));
-		logger.info("order cancelled");
+	@Then("a cancelation message shouldd be displayed {string}")
+	public void aCancelationMessageShouldBeDisplayedReturnWasSuccessful(String String) throws InterruptedException {
+		waitTillPresence(factory.orderPage().returnOrder);
+		Assert.assertTrue(isElementDisplayed(factory.orderPage().returnOrder));
+		logger.info("order returned");
 		Thread.sleep(3000);
 	   
 	}
